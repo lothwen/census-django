@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<title>{{ group_name }} Census {{ version }}</title>
+	<link rel="STYLESHEET" href="/static/css/style.css" type="text/css">
+	<link rel="STYLESHEET" href="/static/css/menuMatic.css" type="text/css">
+</head>
+
+<body>
+<div id="container">
+	
+	<div id="header">
+		<div id="headerimg">
+			<h1><a href="/">Census</a></h1>
+			<div class="description">La herramienta eskaut</div>
+		</div>
+		{% include "website/menu.html" %}
+
+	</div>
+
+	{% include "website/sidebar.html" %}
+	
+	<div id="content">
+		<div id="body">
+		{% block content %}{% endblock %}
+		</div>
+	</div>
+
+	<div id="footer" class="center">
+		<b>{{ group_name }}  Census {{ version }} Licensed under the GNU GPL2 License</b><br>
+		<a href="http://validator.w3.org/check?uri=referer"><img class="imagen" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>	
+		<!--<a href="http://www.eskaut.org"><img class="imagen" src="/static/images/eeb.png" alt="Euskalerriko Eskautak Bizkaia"></a>-->
+		<a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="pony powered"></a>
+	</div>
+
+</div>
+
+</body>
+</html>

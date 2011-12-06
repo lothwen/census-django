@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Census</title>
+<link rel="stylesheet" href="/static/css/login.css" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset:utf-8" />
+<link rel="shortcut icon" href="/static/images/login/favicon.ico" />
+</head>
+<body>
+
+	<div id="wrapper">
+		<div id="header">
+			<div id="logo"><h1 style="color:white; height: 38px; margin:0px">Census</h1></div>
+		</div>
+	</div>
+	<table width="100%" class="menubar" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td class="menubackgr" style="padding-left:5px;">Euskalerriko Eskautak Bizkaia</td>
+	</tr>
+	</table>
+
+	<br /><br /><br />
+
+	<div align="center" id="ctr">
+	
+		{% if form.errors %}
+			<div class="message">Nombre de usuario o Contraseña incorrecto.  Intentelo de nuevo</div>
+		{% endif %}
+	
+		<div class="login">
+			<div class="login-form">
+				<img alt="Acceder" src="/static/images/login/login.gif"/>
+				<form method="post" action="{% url django.contrib.auth.views.login %}">
+				{% csrf_token %}
+				<div class="form-block">
+					<br />
+					<div class="inputlabel">{{ form.username.label_tag }}</div>
+					<div>{{ form.username }}</div>
+					<div class="inputlabel">{{ form.password.label_tag }}</div>
+					<div>{{ form.password }}</div>
+					<div align="left"><input type="submit" value="Entrar" class="button" name="submit"/>
+					</div>
+				</div>
+				<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+		  	</div>
+			<div class="login-text">
+				<div class="ctr"><img height="64" width="64" alt="seguridad" src="/static/images/login/security.png"/></div>
+				<p>Bienvenido a Census!</p>
+				<p>Tienes que usar un Nombre de usuario y Contraseña validos para acceder .</p>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<div id="break"></div>
+		
+		<div class="footer" align="center">
+			<div align="center"> Census es software libre bajo licencia GNU/GPL.</div>
+		</div>
+	</div>
+
+</body>
+</html>

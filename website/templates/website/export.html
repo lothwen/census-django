@@ -1,0 +1,62 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+<h2>Exportar datos</h2>
+
+
+
+<fieldset>
+<legend>Impresión de etiquetas para sobres</legend>
+<table border="0" align="center">
+	<tr>
+		<td>Todos</td>
+		<td><input type="checkbox" name="todos"></td>
+	</tr>
+	{% for rama in ramas_list %}
+		<tr>
+			<td>{{ rama.nombre }}</td>
+			<td><input type="checkbox" name="{{ rama.id }}"></td>
+		</tr>
+	{% endfor %}
+		<tr>
+			<td><input type="button" onCLick="javascript:window.location='index2.php?section=<?echo $_GET['section']?>&task=labels'" value="Impresión de etiquetas"></td>
+			<td></td>
+		</tr>
+</table>
+
+</fieldset>
+
+
+<br />
+
+<fieldset>
+<legend>Exportar datos</legend>
+        <a href="index2.php?section=<?echo $_GET['section']?>&task=pdf" ><img alt="Exportar Censo en formato pdf" src="/static/images/pdf-icon-big.gif" /></a>
+	<br />
+	<input type="button" onCLick="javascript:window.location='index2.php?section=<?echo $_GET['section']?>&task=html'" value="Exportar a html plano">
+</fieldset>
+
+<br><br>
+
+<fieldset>
+<legend>Total de chavales</legend>
+<table border="0" align="center">
+        <tr>
+                <th>Rama</th>
+                <th>Total</th>
+        </tr>      
+	
+
+		{% for count in result %}
+	        <tr>
+	                <td>{{ count.nombre }}</td>
+	                <td>{{ count.count }}</td>
+	        </tr>   
+		{% endfor %}
+</table>
+</fieldset>
+
+
+
+{% endblock %}

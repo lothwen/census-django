@@ -1,0 +1,35 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+<h2>Resultado de la busqueda</h2>
+
+<table class='table_list' width='90%' align='center' >
+ 
+	<thead>
+		<tr>
+			<th width=''></th>
+			<th width=''>Nombre</th>
+			<th width=''>Rama</th>
+			<th width=''>Teléfono</th>
+		</tr>
+    </thead>
+        
+    <tbody>
+ 
+	{% for row in search_result %}
+		<tr class='{% cycle linea1,linea2 %}'>
+			<td align=''><a href='/view/{{ row.id }}'>{{ forloop.counter }}</a></td>
+			<td align=''><a href='/view/{{ row.id }}'>{{ row.nombre }} {{ row.apellidos }}</a></td>
+			<td align=''><a href='/view/{{ row.id }}'>{{ row.rama }}</a></td>
+			<td align=''><a href='/view/{{ row.id }}'>{{ row.telefono }}</a></td>
+		</tr>
+	{% endfor %}
+    
+    {% ifequal forloop.counter 1 %}
+		<tr class='linea2' colspan='3'><td>No se han encontrado resultados.</td></tr>
+	{% endifequal %}
+	</tbody>
+</table>
+
+{% endblock %}

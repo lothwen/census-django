@@ -1,0 +1,15 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+<h2>{% if data %} Modificar chaval/a {% else %} Insertar nuevo chaval/a {% endif %}</h2>
+
+<form action="." method="POST">
+	{% csrf_token %}
+	<table>
+		{{ form.as_table }}
+	</table>
+	<p><input type="submit" value="Guardar"></p>
+</form>
+
+{% endblock %}
